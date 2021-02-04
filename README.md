@@ -68,7 +68,7 @@
 > sudo mv linux-amd64/helm /usr/local/bin/helm
 
 **Install chart**
-> helm install -n rook-ceph rook-ceph ~/rook/
+> helm install -n rook-ceph rook-ceph ~/energinet/rook-ceph-stable/
 
 ### Github
 **Clone this repo**
