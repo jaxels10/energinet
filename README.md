@@ -1,4 +1,4 @@
-# ENRook
+# energinet
 
 ## Table of Contents
 [General](#General)  
