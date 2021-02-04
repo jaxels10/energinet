@@ -1,0 +1,45 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: volumes.rook.io
+spec:
+  group: rook.io
+  names:
+    kind: Volume
+    listKind: VolumeList
+    plural: volumes
+    singular: volume
+    shortNames:
+      - rv
+  scope: Namespaced
+  versions:
+    - name: v1alpha2
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            attachments:
+              type: array
+              items:
+                type: object
+                properties:
+                  node:
+                    type: string
+                  podNamespace:
+                    type: string
+                  podName:
+                    type: string
+                  clusterName:
+                    type: string
+                  mountDir:
+                    type: string
+                  readOnly:
+                    type: boolean
+            status:
+              type: object
+              x-kubernetes-preserve-unknown-fields: true
+      subresources:
+        status: {}
