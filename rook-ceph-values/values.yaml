@@ -2,6 +2,63 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+cluster:
+  spec: 
+    cephVersion: 
+      image: ceph/ceph:v15.2.8
+      allowUnsupported: false
+    dataDirHostPath: /var/lib/rook
+    skipUpgradeChecks: false
+    continueUpgradeAfterChecksEvenIfNotHealthy: false
+    waitTimeoutForHealthyOSDInMinutes: 10
+    mon: 
+      count: 3
+      allowMultiplePerNode: false
+    dashboard:
+      enabled: true
+      ssl: true
+    monitoring: 
+      enabled: false
+      rulesNamespace: rook-ceph
+    crashCollector: 
+      disable: false
+    cleanupPolicy: 
+      confirmation: ""
+      sanitizeDisks: 
+        method: quick
+        dataSource: zero
+        iteration: 1
+      allowUninstallWithVolumes: false
+  removeOSDsIfOutAndSafeToRemove: false
+  storage: 
+    useAllNodes: true
+    useAllDevices: true
+  disruptionManagement:
+    managePodBudgets: true
+    osdMaintenanceTimeout: 30
+    pgHealthCheckTimeout: 0
+    manageMachineDisruptionBudgets: false
+    machineDisruptionBudgetNamespace: openshift-machine-api
+  healthCheck:
+    daemonHealth:
+      mon:
+        disabled: false
+        interval: 45s
+      osd:
+        disabled: false
+        interval: 60s
+      status:
+        disabled: false
+        interval: 60s
+    
+    livenessProbe:
+      mon:
+        disabled: false
+      mgr:
+        disabled: false
+      osd:
+        disabled: false
+
 image:
   prefix: rook
   repository: rook/ceph
@@ -27,7 +84,7 @@ nodeSelector: {}
 # For more info, see https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
 #  disktype: ssd
 
-# Tolerations for the rook-ceph-operator to allow it to run on nodes with particular taints
+#Tolerations for the rook-ceph-operator to allow it to run on nodes with particular taints
 tolerations: []
 
 # Delay to use in node.kubernetes.io/unreachable toleration
@@ -357,3 +414,4 @@ admissionController:
   #      operator: Exists
   #      effect: NoSchedule
   # nodeAffinity: key1=value1,value2; key2=value3
+
