@@ -55,6 +55,9 @@
 **Bash into toolbox**
 > kubectl -n rook-ceph exec -it deploy/rook-ceph-tools -- bash
 
+**Bash into pod** 
+> kubectl exec -it csirbd-demo-pod -n rook-ceph -- /bin/bash
+
 **Root access**  
 > sudo su -
 
