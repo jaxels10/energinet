@@ -39,6 +39,9 @@
 **Watch pods**  
 > watch kubectl -n rook-ceph get pod
 
+**Get services**
+> kubectl -n rook-ceph get service
+
 **Describe pod**  
 > kubectl describe pod -n rook-ceph pod-name
 
