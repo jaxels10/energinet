@@ -80,6 +80,9 @@
 **Install chart**
 > helm install -n rook-ceph rook-ceph ~/energinet/rook-ceph-stable/
 
+**Upgrade chart**
+> helm upgrade -n rook-ceph rook-ceph ~/energinet/rook-ceph-stable/
+
 ### Github
 **Clone this repo**
 > git clone https://github.com/jaxels10/ENRook.git
