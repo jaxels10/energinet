@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ntp
+spec:
+  containers:
+    - name: ntpimage
+      image: jelle128/energinetntp:latest
+      imagePullPolicy: Always
+      command: [ "echo", "SUCCESS" ]

@@ -1,0 +1,7 @@
+FROM ubuntu:18.04
+RUN apt-get update -y
+RUN apt-get install build-essential -y
+RUN apt install chrony -y
+RUN echo "pool pool.ntp.org iburst\nmakestep 1.0 3\nrtcsync" > /etc/chrony/chrony.conf
+COPY startup.sh /opt/startup.sh
+ENTRYPOINT [ "/bin/sh", "/opt/startup.sh" ]
