@@ -86,3 +86,7 @@
 ### Github
 **Clone this repo**
 > git clone https://github.com/jaxels10/ENRook.git
+
+
+# Production Ceph
+Change image from ceph/ceph:v15.2.8 to a specific full-ceph-version-and-build tags (e.g., v15.2.8-20201201).
