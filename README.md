@@ -90,3 +90,4 @@
 
 # Production Ceph
 Change image from ceph/ceph:v15.2.8 to a specific full-ceph-version-and-build tags (e.g., v15.2.8-20201201).
+https://rook.io/docs/rook/v1.5/ceph-examples.html
